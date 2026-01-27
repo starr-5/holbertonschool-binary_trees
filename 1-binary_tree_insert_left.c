@@ -11,26 +11,19 @@ binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
 {
 	binary_tree_t *new_node;
 
-	/* 1. Parent yoxdursa, heç nə edə bilmərik */
 	if (parent == NULL)
 		return (NULL);
 
-	/* 2. Yeni node yaradılır (Task 0-dakı funksiyanı istifadə edirik) */
 	new_node = binary_tree_node(parent, value);
 	if (new_node == NULL)
 		return (NULL);
 
-	/* 3. Əgər Parent-in artıq sol uşağı varsa */
 	if (parent->left != NULL)
 	{
-		/* Yeni node-un soluna köhnə uşağı bağlayırıq */
 		new_node->left = parent->left;
-		
-		/* Köhnə uşağın parent-ini yeni node edirik */
 		parent->left->parent = new_node;
 	}
 
-	/* 4. Parent-in solunu yeni node-a bağlayırıq */
 	parent->left = new_node;
 
 	return (new_node);
