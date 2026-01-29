@@ -5,20 +5,20 @@
  * @tree: Gəziləcək ağacın kök düyününə pointer
  * @func: Hər bir düyün üçün çağırılacaq funksiyaya pointer
  *
- * Təsvir: Əgər tree və ya func NULL-dursa, heç nə etmə.
+ * Return: Heç nə (void)
  */
-void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int)) {
-    binary_tree_t *new_mode;
+void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int))
+{
+	/* 1. Şərt: tree və ya func NULL-dursa, heç nə etmə */
+	if (tree == NULL || func == NULL)
+		return;
 
-    new_node = malloc(sizeof(binary_trees_t));
-    if(new_node == NULL)
-        return (NULL);
-    
-    new_node->n = value;
-    new_node->parent = parent;
+	/* 2. Rekursiv olaraq sol tərəfə get */
+	binary_tree_inorder(tree->left, func);
 
-    new_node->left = NULL;
-    new_node->right = NULL;
+	/* 3. Hazırkı düyündəki funksiyanı icra et */
+	func(tree->n);
 
-    return (new_node);
+	/* 4. Rekursiv olaraq sağ tərəfə get */
+	binary_tree_inorder(tree->right, func);
 }
