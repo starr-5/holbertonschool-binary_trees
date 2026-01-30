@@ -7,11 +7,11 @@
  *
  * Return: Heç nə (void)
  */
-void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int)) 
+void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int))
 {
     /* Şərt: tree və ya func NULL-dursa, funksiyadan çıx */
 	if (tree == NULL || func == NULL)
-		return; /* Burada 'r' hərfi kiçik olmalıdır */
+		return;
 
 	/* Sol tərəfə get */
 	binary_tree_postorder(tree->left, func);
