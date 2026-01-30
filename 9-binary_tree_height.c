@@ -12,30 +12,21 @@ size_t binary_tree_height(const binary_tree_t *tree)
     size_t right_height = 0;
 
     /* If it is leaf it will return 0 */
-    if (tree == NULL) 
-    {
+    if (tree == NULL)
         return (0);
-    }
+    
 
     /* Calculate the height of the left side */
-    if (tree->left) 
-    {
+    if (tree->left)
         left_height = 1 + binary_tree_height(tree->left);
-    }
 
     /* Calculate the height of the right side */
-    if (tree->right) 
-    {
+    if (tree->right)
         right_height = 1 + binary_tree_height(tree->right);
-    }
 
     /* Return which part is the heighest */
-    if (left_height > right_height) 
-    {
+    if (left_height > right_height)
         return (left_height);
-    }
-    else 
-    {
+    else
         return (right_height);
-    }
 }
