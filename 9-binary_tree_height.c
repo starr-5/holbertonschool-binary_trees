@@ -23,7 +23,7 @@ size_t binary_tree_height(const binary_tree_t *tree)
 
     /* Calculate the height of the right side */
     if(tree->right){
-        left_height = 1 + binary_tree_height(tree->right);
+        right_height = 1 + binary_tree_height(tree->right);
     }
 
     /* Return which part is the heighest */
