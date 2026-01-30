@@ -10,15 +10,15 @@
 void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int)) 
 {
     /* Şərt: tree və ya func NULL-dursa, funksiyadan çıx */
-    if (tree == NULL || func == NULL) {
-        return;
-    }   
-    
-    /* Check the left side */
-    binary_tree_postorder(tree->left, func);
+	if (tree == NULL || func == NULL)
+		return; /* Burada 'r' hərfi kiçik olmalıdır */
 
-    /* Check the right side */
-    binary_tree_postorder(tree->right, func);
+	/* Sol tərəfə get */
+	binary_tree_postorder(tree->left, func);
 
-    func(tree->n);
+	/* Sağ tərəfə get */
+	binary_tree_postorder(tree->right, func);
+
+	/* Özünü emal et */
+	func(tree->n);
 }
